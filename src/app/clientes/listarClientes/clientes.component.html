@@ -28,6 +28,10 @@
           <td>{{cliente.apellido}}</td>
           <td>{{cliente.email}}</td>
           <td>{{cliente.createAt}}</td>
+          <td>
+            <button (click)="editarCliente(cliente.id)" class="btn btn-warning">Editar</button>
+            <button (click)="eliminarCliente(cliente.id)" class="btn btn-danger">Eliminar</button>
+          </td>
         </tr>
       </tbody>
 

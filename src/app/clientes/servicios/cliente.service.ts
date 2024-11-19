@@ -22,4 +22,19 @@ export class ClienteService {
     console.log("Creando cliente desde el servicio");
     return this.htpp.post<Cliente>(this.urlEndPoint, cliente, {headers: this.httpHeaders});
   }
+
+  update(cliente: Cliente): Observable<Cliente> {
+    console.log("Actualizando cliente desde el servicio", cliente);
+    return this.htpp.put<Cliente>(`${this.urlEndPoint}/${cliente.id}`, cliente, {headers: this.httpHeaders});
+  }
+
+  deleteCliente(id: number): Observable<void> {
+    console.log("Eliminando Cliente desde el servicio");
+    return this.htpp.delete<void>(`${this.urlEndPoint}/${id}`, { headers: this.httpHeaders });
+  }
+
+  getClientById(id: number): Observable<Cliente> {
+    console.log("Obteniendo cliente con ID: ", id);
+    return this.htpp.get<Cliente>(`${this.urlEndPoint}/${id}`);
+  }
 }
